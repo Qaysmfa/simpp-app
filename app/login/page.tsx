@@ -55,7 +55,7 @@ export default function LoginPage() {
           <div className="h-14 w-14 rounded-full flex items-center justify-center mb-3" style={{ background: NAVY }}>
             <Scale size={26} color="#FFFFFF" />
           </div>
-          <h1 className="text-lg font-semibold text-gray-900 text-center">Sistem Monitoring Pembacaan Perkara</h1>
+          <h1 className="text-lg font-semibold text-gray-900 text-center">Monitoring Pembacaan Tuntutan, Putusan Pidana Mati, Seumur Hidup dan Penjara 20 Tahun dalam Perkara Narkotika</h1>
           <p className="text-sm text-gray-500 text-center mt-1">Portal Pengadilan &amp; Kejaksaan</p>
         </div>
 
@@ -90,4 +90,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
