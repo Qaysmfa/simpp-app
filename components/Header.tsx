@@ -16,7 +16,7 @@ export default function Header({
   return (
     <header className="sticky top-0 z-20 bg-white border-b flex items-center justify-between px-4 lg:px-6 h-16 shrink-0" style={{ borderColor: "#DFE3E8" }}>
       <div className="flex items-center gap-3 min-w-0">
-        <button className="lg:hidden p-2 -ml-2 text-gray-600" onClick={() => setMobileOpen(true)} aria-label="Buka menu">
+        <button className="lg:hidden p-2 -ml-2 text-gray-600 rounded transition-colors hover:bg-gray-100 hover:text-[#0B2545]" onClick={() => setMobileOpen(true)} aria-label="Buka menu">
           <Menu size={20} />
         </button>
         <h1 className="text-base lg:text-lg font-semibold text-gray-900 truncate">{title}</h1>
@@ -33,4 +33,3 @@ export default function Header({
     </header>
   );
 }
-

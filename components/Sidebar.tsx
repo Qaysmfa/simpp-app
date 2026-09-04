@@ -1,6 +1,7 @@
 "use client";
 
 import { ClipboardList, FileText, LayoutDashboard, LogOut, PlusCircle, Scale, Settings, Users } from "lucide-react";
+import { useRouter } from "next/navigation";
 import type { UserRole } from "@/lib/types";
 import { signOut } from "@/lib/auth";
 
@@ -17,6 +18,7 @@ export default function Sidebar({
   mobileOpen: boolean;
   setMobileOpen: (open: boolean) => void;
 }) {
+  const router = useRouter();
   const items = [
     { key: "dashboard", label: "Dashboard", icon: LayoutDashboard, show: true },
     { key: "cases", label: "Semua Perkara", icon: FileText, show: true },
@@ -26,7 +28,7 @@ export default function Sidebar({
     { key: "settings", label: "Settings", icon: Settings, show: true },
   ];
   const button = (item: (typeof items)[number]) => (
-    <button key={item.key} onClick={() => { onNavigate(item.key); setMobileOpen(false); }} className="w-full flex items-center gap-3 px-3 py-2 rounded text-sm transition-colors" style={{ background: view === item.key ? "#13345F" : "transparent", color: view === item.key ? "#FFFFFF" : "#B7C4D8" }}>
+    <button key={item.key} onMouseEnter={() => router.prefetch(item.key === "cases" ? "/dashboard" : `/${item.key}`)} onFocus={() => router.prefetch(item.key === "cases" ? "/dashboard" : `/${item.key}`)} onClick={() => { onNavigate(item.key); setMobileOpen(false); }} className="w-full flex items-center gap-3 px-3 py-2 rounded text-sm transition-all duration-150 hover:bg-[#13345F] hover:text-white active:scale-[0.98]" style={{ background: view === item.key ? "#13345F" : "transparent", color: view === item.key ? "#FFFFFF" : "#B7C4D8" }}>
       <item.icon size={17} /><span>{item.label}</span>
     </button>
   );
