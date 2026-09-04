@@ -24,6 +24,7 @@ export default function CaseDetailPage() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     async function load() {
@@ -88,8 +89,8 @@ export default function CaseDetailPage() {
   ];
 
   return <div className="min-h-screen flex" style={{ background: "#F3F5F8", fontFamily: "Inter, system-ui, sans-serif" }}>
-    <Sidebar role={user.role} view="cases" onNavigate={(key) => router.push(key === "cases" ? "/dashboard" : `/${key}`)} mobileOpen={false} setMobileOpen={() => undefined} />
-    <div className="flex-1 min-w-0 flex flex-col"><Header title="Detail Perkara" user={user} setMobileOpen={() => undefined} /><main className="flex-1 p-4 lg:p-6 space-y-5">
+    <Sidebar role={user.role} view="cases" onNavigate={(key) => router.push(key === "cases" ? "/dashboard" : `/${key}`)} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
+    <div className="flex-1 min-w-0 flex flex-col"><Header title="Detail Perkara" user={user} setMobileOpen={setMobileOpen} /><main className="flex-1 p-4 lg:p-6 space-y-5">
       {message && <div className="flex items-center gap-2 bg-[#EAF7EE] border border-[#BEE7C7] text-[#166534] text-sm rounded px-4 py-2.5"><CheckCircle2 size={15} /> {message}</div>}
       {error && <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded px-3 py-2">{error}</div>}
       <div className="max-w-3xl space-y-4"><button onClick={() => router.push("/dashboard")} className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700"><ArrowLeft size={15} /> Kembali ke Semua Perkara</button>
