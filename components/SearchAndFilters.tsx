@@ -27,7 +27,7 @@ export default function SearchAndFilters({ filters, setFilters, onReset }: { fil
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
       <div className="relative lg:col-span-2"><Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" /><input className={`${input} pl-9`} placeholder="Cari no. perkara atau nama terdakwa..." value={filters.q} onChange={set("q")} /></div>
       <select className={input} value={filters.status} onChange={set("status")}><option value="">Semua Status</option><option value="belum">Belum Dibacakan</option><option value="sudah">Sudah Dibacakan</option></select>
-      <input type="date" className={input} value={filters.tanggal} onChange={set("tanggal")} />
+      <input type="date" className={`${input} min-w-0`} value={filters.tanggal} onChange={set("tanggal")} />
       <select className={input} value={filters.pengadilan} onChange={set("pengadilan")}><option value="">Semua Pengadilan</option>{COURTS.map((court) => <option key={court}>{court}</option>)}</select>
       <select className={input} value={filters.bulan} onChange={set("bulan")}>{months.map((month, i) => <option key={month} value={i ? String(i) : ""}>{month}</option>)}</select>
       <select className={input} value={filters.tahun} onChange={set("tahun")}><option value="">Semua Tahun</option><option value="2026">2026</option><option value="2025">2025</option></select>
@@ -35,4 +35,3 @@ export default function SearchAndFilters({ filters, setFilters, onReset }: { fil
     </div>
   </div>;
 }
-
