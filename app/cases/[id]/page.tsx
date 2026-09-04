@@ -89,7 +89,7 @@ export default function CaseDetailPage() {
   ];
 
   return <div className="min-h-screen flex" style={{ background: "#F3F5F8", fontFamily: "Inter, system-ui, sans-serif" }}>
-    <Sidebar role={user.role} view="cases" onNavigate={(key) => router.push(key === "cases" ? "/dashboard" : `/${key}`)} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
+    <Sidebar role={user.role} view="cases" onNavigate={(key) => router.push(key === "cases" ? "/cases" : `/${key}`)} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
     <div className="flex-1 min-w-0 flex flex-col"><Header title="Detail Perkara" user={user} setMobileOpen={setMobileOpen} /><main className="flex-1 p-4 lg:p-6 space-y-5">
       {message && <div className="flex items-center gap-2 bg-[#EAF7EE] border border-[#BEE7C7] text-[#166534] text-sm rounded px-4 py-2.5"><CheckCircle2 size={15} /> {message}</div>}
       {error && <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded px-3 py-2">{error}</div>}

@@ -113,7 +113,7 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen flex" style={{ background: "#F3F5F8", fontFamily: "Inter, system-ui, sans-serif" }}>
-      <Sidebar role={user.role} view="dashboard" onNavigate={(key) => router.push(key === "cases" ? "/dashboard" : `/${key}`)} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
+      <Sidebar role={user.role} view="dashboard" onNavigate={(key) => router.push(key === "cases" ? "/cases" : `/${key}`)} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
       <div className="flex-1 min-w-0 flex flex-col">
         <Header title="Dashboard" user={user} setMobileOpen={setMobileOpen} />
         <main className="flex-1 p-4 lg:p-6 space-y-5">
